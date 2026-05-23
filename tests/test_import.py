@@ -12,6 +12,8 @@ def test_renderer_is_subclass_of_page_template():
     assert issubclass(Renderer, PageTemplateRenderer)
 
 
-def test_renderer_has_correct_file_extension():
+def test_renderer_has_empty_file_extension():
+    # Gerby uses filenameoverride to produce .tag/.proof per node;
+    # there is no single default extension.
     from plastex_gerby.Renderers.Gerby import Renderer
-    assert Renderer.fileExtension == '.tag'
+    assert Renderer.fileExtension == ''

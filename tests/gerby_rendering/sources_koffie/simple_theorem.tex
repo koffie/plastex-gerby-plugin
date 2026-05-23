@@ -1,6 +1,10 @@
 %# tags
 \documentclass{article}
-\usepackage{amsthm}
+
+% No \usepackage{amsthm} — koffie/gerby-project plastex has \newtheorem
+% and \proof built in. This file is used only for benchmark generation via
+% scripts/generate_benchmarks.py. For the upstream plugin tests, see
+% sources/simple_theorem.tex which adds \usepackage{amsthm}.
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}

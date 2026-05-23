@@ -15,7 +15,7 @@ import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).parent.parent  # repo root
-SOURCES = HERE / "tests/gerby_rendering/sources"
+SOURCES = HERE / "tests/gerby_rendering/sources_koffie"
 EXTRAS = HERE / "tests/gerby_rendering/extras"
 BENCHMARKS = HERE / "tests/gerby_rendering/benchmarks"
 
