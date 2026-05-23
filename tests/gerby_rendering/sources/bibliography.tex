@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\begin{document}
+
+\section{A cited result}
+
+\begin{theorem}
+\label{thm:euclid}
+There are infinitely many primes~\cite{euclid}.
+\end{theorem}
+
+\begin{proof}
+See~\cite{euclid}.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{euclid} Euclid, \textit{Elements}, circa 300~BC.
+\end{thebibliography}
+
+\end{document}

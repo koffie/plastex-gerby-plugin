@@ -89,9 +89,10 @@ def loadTags(document):
     document.userdata["proofs"] = {}  # tag  → proof count
 
     for line in content:
-        if line[0] == "#":
+        line = line.rstrip()
+        if not line or line[0] == "#":
             continue
-        tag, label = line.rstrip().split(",")
+        tag, label = line.split(",")
         document.userdata["tags"][tag] = label
         document.userdata["labels"][label] = tag
         document.userdata["proofs"][tag] = 0

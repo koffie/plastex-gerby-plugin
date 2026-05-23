@@ -1,0 +1,7 @@
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Its only divisors are $1$ and $2$. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>

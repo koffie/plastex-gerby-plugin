@@ -1,0 +1,23 @@
+\documentclass{report}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\begin{document}
+
+\chapter{The First Chapter}
+\label{chapter:only}
+
+\section{The Only Section}
+\label{section:only}
+
+\begin{theorem}
+\label{thm:in-chapter}
+A theorem inside a chapter.
+\end{theorem}
+
+\begin{proof}
+Evident.
+\end{proof}
+
+\end{document}

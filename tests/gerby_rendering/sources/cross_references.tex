@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\begin{document}
+
+\section{Cross-references}
+
+\begin{lemma}
+\label{lem:helper}
+A useful helper result.
+\end{lemma}
+
+\begin{proof}
+By direct computation.
+\end{proof}
+
+\begin{theorem}
+\label{thm:uses-lemma}
+The main theorem. By Lemma~\ref{lem:helper}, the claim holds.
+\end{theorem}
+
+\begin{proof}
+Apply Lemma~\ref{lem:helper} directly.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+
+\section{Various theorem styles}
+
+\begin{definition}
+\label{def:prime}
+A prime is an integer greater than $1$ with no positive divisors other than $1$ and itself.
+\end{definition}
+
+\begin{proposition}
+\label{prop:two-prime}
+The number $2$ is prime.
+\end{proposition}
+
+\begin{proof}
+Its only divisors are $1$ and $2$.
+\end{proof}
+
+\begin{remark}
+\label{rem:two-only-even}
+The number $2$ is the only even prime.
+\end{remark}
+
+\begin{example}
+\label{ex:primes}
+The first few primes are $2, 3, 5, 7, 11$.
+\end{example}
+
+\end{document}

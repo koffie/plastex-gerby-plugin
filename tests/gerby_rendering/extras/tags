@@ -1,4 +1,27 @@
-# Tags file for simple_theorem.tex tests
+# Tags file for all gerby_rendering test fixtures
 # format: TAG,label
+
+# simple_theorem.tex
 0001,thm:primes
 0002,lem:euclid
+
+# chapters.tex
+0010,chapter:only
+0011,section:only
+0012,thm:in-chapter
+
+# environments.tex
+0020,def:prime
+0021,prop:two-prime
+0022,rem:two-only-even
+0023,ex:primes
+
+# aligned_math.tex
+0030,thm:square
+
+# cross_references.tex
+0040,lem:helper
+0041,thm:uses-lemma
+
+# bibliography.tex
+0050,thm:euclid

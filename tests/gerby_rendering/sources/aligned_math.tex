@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+
+\begin{document}
+
+\section{Algebra}
+
+\begin{theorem}
+\label{thm:square}
+For all real $a$ and $b$:
+\[
+  (a+b)^2 = a^2 + 2ab + b^2.
+\]
+\end{theorem}
+
+\begin{proof}
+Direct expansion:
+\begin{align*}
+  (a+b)^2 &= (a+b)(a+b) \\
+           &= a^2 + ab + ba + b^2 \\
+           &= a^2 + 2ab + b^2. \qedhere
+\end{align*}
+\end{proof}
+
+\end{document}

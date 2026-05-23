@@ -1,0 +1,11 @@
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Direct expansion: 
+    <p>
+      <div class="equation">
+  \begin{align*}  (a+b)^2 & = (a+b)(a+b) \\ & = a^2 + ab + ba + b^2 \\ & = a^2 + 2ab + b^2. \qedhere \end{align*}
+</div>
+      <span class="qed">$\square$</span>
+    </p>
+</article>
