@@ -1,0 +1,8 @@
+name: bf bfseries textbf
+<strong>{{ obj }}</strong>
+
+name: it itseries textit
+<em>{{ obj }}</em>
+
+name: large
+<big>{{ obj }}</big>

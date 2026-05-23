@@ -1,0 +1,22 @@
+name: egroup
+
+name: bgroup
+{{ obj }}
+
+name: tableofcontents input @vobeyspaces @noligs def protect let \
+      newcommand hfill hline openout renewcommand write hspace appendix \
+      global noindent include markboth setcounter refstepcounter \
+      bigskip medskip smallskip parindent indent setlength settowidth addtolength \
+      nopagebreak newwrite newcounter typeout sloppypar thispagestyle vfill \
+      hypertarget newenvironment reversemarginpar phantomsection \
+      vskip pagestyle centerline hyperref marginnote normalmarginpar \
+      bibliography bibliographystyle
+
+name: texorpdfstring
+{{ obj.argSources['tex'][1:-1] }}
+
+name: href
+<a href="{{ obj.argSources['url'][1:-1] }}">{{ obj }}</a>
+
+name: xspace
+&nbsp;

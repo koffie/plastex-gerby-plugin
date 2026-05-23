@@ -1,0 +1,32 @@
+name: itemize
+<ul>
+  {{ obj }}
+</ul>
+
+name: enumerate
+<ol>
+  {{ obj }}
+</ol>
+
+name: description
+<dl>
+{% for item in obj %}
+  <dt>{{ item.attributes.term or obj.attributes.defaultlabel }}</dt>
+  <dd>{{ item }}</dd>
+{% endfor %}
+</dl>
+
+name: item
+<li
+{%- if obj.attributes['term'] or obj.userdata['tag'] %}
+ class="custom-item"
+  {%- if obj.attributes['term'] %}
+ data-marker="{{- obj.attributes['term'] | striptags -}}"
+  {%- endif -%}
+  {%- if obj.userdata['tag'] %}
+ id="{{- obj.userdata['tag'] -}}"
+  {%- endif -%}
+{%- endif -%}
+>
+  {{- obj -}}
+</li>

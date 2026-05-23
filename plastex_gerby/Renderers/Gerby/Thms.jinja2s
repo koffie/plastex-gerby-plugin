@@ -1,0 +1,42 @@
+name: thmenv
+<article class="env-{{ obj.thmName }}" id="{{ obj.userdata['tag'] }}">
+  {% set states = {'printIdentifier': False} %}
+  {% for par in obj %}
+    {% if par.isItWhitespace %}
+      {{ par }}
+    {% else %}
+  <p>
+      {%- if not states.printedIdentifier-%}
+        {%- if obj.title -%}
+    <a class="environment-identifier" href="/tag/{{ obj.userdata['tag'] }}">{{ obj.caption }} <span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span> <span class="named">({{ obj.title }})</span>.</a>
+        {%- else -%}
+    <a class="environment-identifier" href="/tag/{{ obj.userdata['tag'] }}">{{ obj.caption }} <span data-tag="{{ obj.userdata['tag'] }}">{{ obj.ref }}</span>.</a>
+        {%- endif -%}
+        {% if states.update({'printedIdentifier': True}) %}{% endif %}
+      {%- endif -%}
+    {{par}}</p>
+    {% endif %}
+  {% endfor %}
+</article>
+
+name: proof
+<article class="env-proof">
+  {% for par in obj %}
+    <p>
+    {% if loop.first %}
+      {% if obj.caption %}
+      <strong>{{ obj.caption }}.</strong>
+      {% else %}
+      <strong>Proof.</strong>
+      {% endif %}
+    {% endif %}
+      {{ par }}
+    {% if loop.last %}
+      <span class="qed">$\square$</span>
+    </p>
+    {% endif %}
+  {% endfor %}
+</article>
+
+name: reference slogan history
+{{ obj }}

@@ -1,0 +1,9 @@
+name: tikzcd
+<tikzcd id="{{ obj.id }}">
+{{ obj.source }}
+</tikzcd>
+
+name: tikzpicture
+<tikzpicture id="{{ obj.id }}">
+{{ obj.source }}
+</tikzpicture>

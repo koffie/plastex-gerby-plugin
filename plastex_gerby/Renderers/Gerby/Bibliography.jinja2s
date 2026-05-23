@@ -1,0 +1,2 @@
+name: cite
+<span class="cite">[{% if obj.postnote %}<span class="postnote">{{ obj.postnote }}</span>, {% endif %}{% for item in obj.attributes['bibkeys'] %}<a href="/bibliography/{{ item }}">{{ item }}</a>{{ ", " if not loop.last }}{% endfor %}]</span>
