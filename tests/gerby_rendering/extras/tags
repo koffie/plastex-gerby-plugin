@@ -1,0 +1,4 @@
+# Tags file for simple_theorem.tex tests
+# format: TAG,label
+0001,thm:primes
+0002,lem:euclid

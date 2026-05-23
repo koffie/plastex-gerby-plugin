@@ -1,0 +1,32 @@
+%# tags
+\documentclass{article}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+
+\begin{document}
+
+\section{Introduction}
+\label{sec:intro}
+
+\begin{theorem}
+\label{thm:primes}
+There are infinitely many prime numbers.
+\end{theorem}
+
+\begin{proof}
+Suppose for contradiction that there are only finitely many primes
+$p_1, \ldots, p_n$. Let $N = p_1 \cdots p_n + 1$. Then $N$ is not
+divisible by any $p_i$, a contradiction.
+\end{proof}
+
+\begin{lemma}
+\label{lem:euclid}
+Every integer greater than $1$ has a prime divisor.
+\end{lemma}
+
+\begin{proof}
+By induction on the integer.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,7 @@
+<article class="env-proof">
+    <p>
+      <strong>Proof.</strong>
+      Suppose for contradiction that there are only finitely many primes $p_1, \ldots , p_ n$. Let $N = p_1 \cdots p_ n + 1$. Then $N$ is not divisible by any $p_ i$, a contradiction. 
+      <span class="qed">$\square$</span>
+    </p>
+</article>
