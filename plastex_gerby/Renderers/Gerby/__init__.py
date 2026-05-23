@@ -33,7 +33,7 @@ def willItBeWhitespace(node):
 class GerbyRenderable(Renderable):
     @property
     def filenameoverride(self):
-        # Tagged theorems/environments → {env}-{ref}-{tag}-{id}.tag
+        # Tagged theorems/environments -> {env}-{ref}-{tag}-{id}.tag
         if "tag" in self.userdata:
             environment = self.nodeName
             if self.nodeName == "thmenv":
@@ -48,7 +48,7 @@ class GerbyRenderable(Renderable):
                 + ".tag"
             )
 
-        # Proofs → {tag}-{count}.proof
+        # Proofs -> {tag}-{count}.proof
         if self.nodeName == "proof":
             caption = self.attributes.get("caption")
             if caption and caption.getElementsByTagName("ref"):
@@ -62,7 +62,7 @@ class GerbyRenderable(Renderable):
                 self.ownerDocument.userdata["proofs"][tag] += 1
                 return tag + "-" + str(self.ownerDocument.userdata["proofs"][tag]) + ".proof"
 
-        # Slogans, history, references → {tag}.{nodename}
+        # Slogans, history, references -> {tag}.{nodename}
         if self.nodeName in ["history", "slogan", "reference"]:
             parentEnv = self.parentNode
             while parentEnv.nodeName == "par":
@@ -84,9 +84,9 @@ def loadTags(document):
     with open(tags_path) as f:
         content = f.readlines()
 
-    document.userdata["tags"] = {}    # tag  → label
-    document.userdata["labels"] = {}  # label → tag
-    document.userdata["proofs"] = {}  # tag  → proof count
+    document.userdata["tags"] = {}    # tag  -> label
+    document.userdata["labels"] = {}  # label -> tag
+    document.userdata["proofs"] = {}  # tag  -> proof count
 
     for line in content:
         line = line.rstrip()
@@ -116,7 +116,7 @@ def decorateTags(node, labels):
 
 
 def linearRepresentation(document):
-    """Build document.userdata['linear']: ordered list of thmenv/proof/… nodes."""
+    """Build document.userdata['linear']: ordered list of thmenv/proof/... nodes."""
     linear = []
     stack = list(document.childNodes)
     while stack:
