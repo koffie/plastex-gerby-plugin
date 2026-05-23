@@ -1,7 +1,7 @@
 """
 Functional tests: render fixture .tex files with our Gerby plugin and compare
-output against benchmark files produced by the original koffie/gerby-project
-renderer (see scripts/generate_benchmarks.py).
+output against benchmark files produced by the original gerby-project/plastex
+renderer (see benchmarks/generate_benchmarks.py).
 """
 import re
 import shutil
@@ -66,7 +66,7 @@ def test_tag_files_match_benchmarks(src, tmp_path):
         bench_file = BENCHMARKS / output_file.name
         assert bench_file.exists(), (
             f"No benchmark for {output_file.name}. "
-            f"Run scripts/generate_benchmarks.py to create it."
+            f"Run benchmarks/generate_benchmarks.py to create it."
         )
         got = _normalise(output_file.read_text())
         expected = _normalise(bench_file.read_text())
@@ -87,7 +87,7 @@ def test_proof_files_match_benchmarks(src, tmp_path):
         bench_file = BENCHMARKS / output_file.name
         assert bench_file.exists(), (
             f"No benchmark for {output_file.name}. "
-            f"Run scripts/generate_benchmarks.py to create it."
+            f"Run benchmarks/generate_benchmarks.py to create it."
         )
         got = _normalise(output_file.read_text())
         expected = _normalise(bench_file.read_text())

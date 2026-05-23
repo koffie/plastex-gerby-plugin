@@ -1,13 +1,18 @@
 """
 Generate benchmark files for functional tests by rendering fixtures with the
-original koffie/gerby-project plastex fork.
+original gerby-project/plastex renderer.
 
-Run with the koffie venv:
-    .venv-koffie/bin/python scripts/generate_benchmarks.py
+The gerby renderer is a fork of plasTeX that has \newtheorem and \proof
+built in (no \usepackage{amsthm} required). Benchmarks are generated from
+benchmarks/sources/ which uses this built-in behaviour.
+
+Run with the gerby venv:
+    .venv-gerby/bin/python benchmarks/generate_benchmarks.py
 
 Output files are written to tests/gerby_rendering/benchmarks/ and should be
 committed to the repository.
 """
+import importlib
 import os
 import shutil
 import sys
@@ -15,11 +20,11 @@ import tempfile
 from pathlib import Path
 
 HERE = Path(__file__).parent.parent  # repo root
-SOURCES = HERE / "tests/gerby_rendering/sources_koffie"
+SOURCES = HERE / "benchmarks/sources"
 EXTRAS = HERE / "tests/gerby_rendering/extras"
 BENCHMARKS = HERE / "tests/gerby_rendering/benchmarks"
 
-# Verify we're running inside the koffie venv by checking the import.
+# Verify we're running inside the gerby venv.
 try:
     from plasTeX.Renderers.Gerby import Renderer
     from plasTeX.Config import config
@@ -27,9 +32,7 @@ try:
     import plasTeX
     from plasTeX.TeX import TeX
 except ImportError as e:
-    sys.exit(f"ERROR: must run with the koffie venv (.venv-koffie). Import failed: {e}")
-
-import importlib
+    sys.exit(f"ERROR: must run with the gerby venv (.venv-gerby). Import failed: {e}")
 
 
 def collect_renderer_config(cfg):
@@ -52,7 +55,6 @@ def render_tex(tex_path: Path, tags_path: Path, outdir: Path) -> None:
     tex = TeX(document, myfile=str(tex_path))
     document.userdata["working-dir"] = str(outdir)
 
-    # Copy tags file into outdir so loadTags can find it
     shutil.copy(str(tags_path), str(outdir / "tags"))
 
     doc = tex.parse()
@@ -79,7 +81,6 @@ def main():
 
             render_tex(tmpdir / src.name, tags, tmpdir)
 
-            # Collect all output files and copy to benchmarks/
             output_files = list(tmpdir.glob("*.tag")) + list(tmpdir.glob("*.proof"))
             if not output_files:
                 print(f"  WARNING: no .tag or .proof files produced for {src.name}")

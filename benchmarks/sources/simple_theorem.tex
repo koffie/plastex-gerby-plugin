@@ -1,10 +1,11 @@
 %# tags
 \documentclass{article}
 
-% No \usepackage{amsthm} — koffie/gerby-project plastex has \newtheorem
-% and \proof built in. This file is used only for benchmark generation via
-% scripts/generate_benchmarks.py. For the upstream plugin tests, see
-% sources/simple_theorem.tex which adds \usepackage{amsthm}.
+% No \usepackage{amsthm} — gerby-project/plastex has \newtheorem and \proof
+% built in. This file is used only for benchmark generation via
+% benchmarks/generate_benchmarks.py using the gerby venv (.venv-gerby).
+% For the upstream plugin tests see tests/gerby_rendering/sources/simple_theorem.tex,
+% which adds \usepackage{amsthm} as required by upstream plasTeX.
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
