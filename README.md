@@ -43,19 +43,20 @@ pip install plastex-gerby
 Activate the plugin by passing `--plugins` and `--renderer` to `plastex`:
 
 ```bash
-plastex --plugins plastex_gerby --renderer Gerby --tags tags book.tex
+plastex --plugins plastex_gerby --renderer Gerby book.tex
 ```
 
-Or set them in a `plastex.cfg` file:
+Or set them in a `plastex.cfg` file (place in the directory where you run `plastex`):
 
 ```ini
 [general]
 renderer = Gerby
 plugins = plastex_gerby
-
-[gerby]
-tags = tags
 ```
+
+The tags file must be named `tags` and placed in the directory where you run
+`plastex`. This path is not yet configurable (see
+https://github.com/koffie/plastex-gerby-plugin/issues/1).
 
 ## Difference from gerby-project/plastex
 
@@ -86,13 +87,14 @@ in upstream plasTeX but not in the gerby-project fork.
 
 ## Configuration options
 
-| Option | CLI flag | Default | Description |
-|--------|----------|---------|-------------|
-| `tags` | `--tags` | `tags` | Path to the tags file |
-| `tikz-compiler` | `--tikz-compiler` | `pdflatex` | LaTeX compiler for TikZ pictures |
-| `tikz-converter` | `--tikz-converter` | `pdf2svg` | PDF to SVG converter for TikZ |
-| `tikz-template` | `--tikz-template` | _(none)_ | Jinja2 template file for tikz |
-| `tikz-cd-template` | `--tikz-cd-template` | _(none)_ | Jinja2 template file for tikz-cd |
+Options are set via `plastex.cfg` under the `[gerby]` section.
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `tikz-compiler` | `pdflatex` | LaTeX compiler for TikZ pictures |
+| `tikz-converter` | `pdf2svg` | PDF to SVG converter for TikZ |
+| `tikz-template` | _(none)_ | Jinja2 template file for tikz |
+| `tikz-cd-template` | _(none)_ | Jinja2 template file for tikz-cd |
 
 ## Development
 
