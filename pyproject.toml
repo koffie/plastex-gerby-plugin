@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plastex-gerby"
+version = "0.1.0"
+description = "Gerby renderer plugin for plasTeX"
+requires-python = ">=3.8"
+dependencies = [
+    "plasTeX >= 3.1",
+    "Jinja2 >= 3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["plastex_gerby*"]
+
+[tool.setuptools.package-data]
+"plastex_gerby" = ["Renderers/Gerby/*.jinja2s"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
