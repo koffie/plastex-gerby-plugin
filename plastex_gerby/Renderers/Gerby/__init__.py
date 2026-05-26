@@ -216,6 +216,10 @@ class Renderer(_Renderer):
         return s
 
     def render(self, document):
+        if "gerby" not in document.config:
+            from plastex_gerby.Renderers.Gerby.Config import addConfig
+            addConfig(document.config)
+
         loadTags(document)
         copyBibliographies(document)
         checkLabels(document)
